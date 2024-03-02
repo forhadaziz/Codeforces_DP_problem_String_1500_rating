@@ -1,0 +1,55 @@
+/*............................ There is no god but Allah ..............................*/
+        /*.............. Muhammad (SAW) is the messenger of Allah ..............*/
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long
+#define in(x) push_back(x)
+#define all(x) x.begin(),x.end()
+#define io ios_base :: sync_with_stdio(false) ; cin.tie(NULL) ; cout.tie(NULL) ;
+#define atoz "abcdefghijklmnopqrstuvwxyz"
+const int N=1000007;
+
+vector<int> visited(N);
+vector<int> A(N);
+vector<int> graph[N]; // adjacency list for representing graph
+
+void forhad(){
+    string s;cin>>s;
+    vector<string>dp;
+    map<string,int>m;
+    for(int i=0;i<s.size();i++){
+        int n=dp.size();
+        for(int j=0;j<n;j++){
+            string tt=dp[j]+s[i];
+            if(tt.size()>3||m[tt])continue;
+            dp.in(tt);
+            m[tt]++;
+        }
+        string x;
+        x+=s[i];
+        if(m[x])continue;
+        dp.in(x);
+        m[x]++;
+    }
+    bool hobe=false;
+    int num;
+    for(int i=0;i<dp.size();i++){
+        num=stoi(dp[i]);
+        if(num%8==0){
+            hobe=true;
+            break;
+        }
+    }
+    hobe? cout<<"YES\n"<<num<<"\n":cout<<"NO\n";
+}
+signed main(){
+    io;
+    int t;
+    //cin>>t;
+    t=1;
+    while(t--){
+        forhad();
+    }
+}
